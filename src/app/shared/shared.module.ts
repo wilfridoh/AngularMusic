@@ -14,7 +14,9 @@ import { HeaderUserComponent } from './components/header-user/header-user.compon
     CommonModule
   ],
   exports:[
-    SileBarComponent
+    SileBarComponent,
+    HeaderUserComponent,
+    MediaPlayerComponent
   ]
 })
 export class SharedModule { }
