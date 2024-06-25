@@ -6,8 +6,8 @@ import { Router } from '@angular/router';
   templateUrl: './sile-bar.component.html',
   styleUrls: ['./sile-bar.component.css']
 })
-export class SileBarComponent implements OnInit{
-    mainMenu: {
+export class SileBarComponent implements OnInit {
+  mainMenu: {
     defaultOptions: Array<any>, accessLink: Array<any>
   } = { defaultOptions: [], accessLink: [] }
 
@@ -15,14 +15,14 @@ export class SileBarComponent implements OnInit{
 
   constructor(private router: Router) { }
 
-  linksMenu: Array<any>= [
+  linksMenu: Array<any> = [
     {
       name: 'Home',
-      icon:'uil uil-estate'
+      icon: 'uil uil-estate'
     },
     {
       name: 'Buscar',
-      icon:'uil uil-search'
+      icon: 'uil uil-search'
     }
   ]
 
@@ -36,7 +36,7 @@ export class SileBarComponent implements OnInit{
       {
         name: 'Buscar',
         icon: 'uil uil-search',
-        router: ['/', 'history']
+        router: ['/', 'history']//TODO: http://localhost:4200/history
       },
       {
         name: 'Tu biblioteca',
@@ -75,6 +75,19 @@ export class SileBarComponent implements OnInit{
         router: ['/']
       }
     ]
+  }
+
+  goTo($event: any): void {
+    this.router.navigate(['/', 'favorites'], {
+      queryParams: {
+        key1: 'value1',
+        key2: 'value2',
+        key3: 'value3'
+      }
+    })
+    console.log($event);
+    //Todo Url parametros solamente
+
   }
 
 }
