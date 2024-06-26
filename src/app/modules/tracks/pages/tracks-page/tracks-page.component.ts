@@ -17,24 +17,17 @@ export class TracksPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.trackService.getAllTrack$()
-    .subscribe(response =>{
-      console.log('llego la información.....', response);
-    })
-    //const observable1$ = this.trackService.dataTracksTrending$
-    //   .subscribe(response => {
-    //     this.tracksTrending = response
-    //     this.tracksRandom = response
-    //     console.log('Canciones trending--------->', response);
-    //   })
-    // const observable2$ = this.trackService.dataTracksRandom$
-    //   .subscribe(response => {
-    //     this.tracksRandom = [ ...this.tracksRandom, ... response]
-    //     console.log('Canciones Random entrando--------->', response);
-    //   })
-    // const { data }: any = (dataRaw as any).default;
-    // this.mockTracksList = data;
-    //console.log(data);
-    //this.listObservers$ = [observable1$, observable2$] 
+      .subscribe((response: TrackModel[]) => {
+        this.tracksTrending = response
+        console.log('llego la información.....', response);
+      })
+
+    this.trackService.getAllRandom$()
+      .subscribe((response: TrackModel[]) => {
+        this.tracksRandom = response
+        console.log('llego la información.....', response);
+      })
+
   }
 
   ngOnDestroy(): void {
