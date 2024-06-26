@@ -14,7 +14,7 @@ export class SileBarComponent implements OnInit {
 
   customOptions: Array<any> = []
 
-  constructor(private router: Router, private trackService: TrackService) { }
+  constructor(private router: Router) { }
 
   linksMenu: Array<any> = [
     {
@@ -77,15 +77,15 @@ export class SileBarComponent implements OnInit {
       }
     ]
 
-    this.trackService.dataTracksRandom$
-      .subscribe((response: any) => {
-        this.customOptions.push(
-          {
-            name: response[0].name,
-            router: []
+    // this.trackService.dataTracksRandom$
+    //   .subscribe((response: any) => {
+    //     this.customOptions.push(
+    //       {
+    //         name: response[0].name,
+    //         router: []
 
-          })
-      })
+    //       })
+    //   })
   }
 
   goTo($event: any): void {
